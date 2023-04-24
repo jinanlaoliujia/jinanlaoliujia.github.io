@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <script src="familytree.js"></script>
     <meta charset="UTF-8">
     <title>My Family Tree</title>
     <style>
@@ -64,47 +65,57 @@
   </head>
   <body>
     <header>
-      <h1>My Family Tree</h1>
+      <h1>老刘家 家谱</h1>
     </header>
     <nav>
       <ul>
-        <li><a href="#">Home</a></li>
-        <li><a href="#">Family Members</a></li>
-        <li><a href="#">About</a></li>
+        <li><a href="index.html">主页</a></li>
+        <li><a href="#">家庭成员</a></li>
+        <li><a href="familyAlbum.html">家庭相册</a></li>
         <li><a href="#">Contact</a></li>
       </ul>
     </nav>
-    <div class="tree">
-      <div class="box parent-box">
-        <h2>刘海东</h2>
-        <p>父亲</p>
-      </div>
-      <div class="box parent-box">
-        <h2>宗景香</h2>
-        <p>母亲</p>
-      </div>
-      <div class="box child-box">
-        <h2>刘云</h2>
-        <p>儿子</p>
-      </div>
-      <div class="box child-box">
-        <h2>刘铁山</h2>
-        <p>儿子</p>
-      </div>
-      <div class="box child-box">
-        <h2>刘玉兰</h2>
-        <p>女儿</p>
-      </div>
-      <div class="box child-box">
-        <h2>刘明山</h2>
-        <p>儿子</p>
-      </div>
-      <div class="box child-box">
-        <h
-    2>刘凤山</h2>
-    <p>儿子</p>
-  </div>
-</div>
-<footer>
-  <p>Contact us at familytree@example.com</p>
+    <div style="width:100%; height:700px;" id="tree"></div>
+    <script>
+      var family = new FamilyTree(document.getElementById("tree"), {
+          nodeBinding: {
+              field_0: "name",
+          },
+          nodes: [
+              { id: 1, pids: [2], name: "刘海东", gender: "male" },
+              { id: 2, pids: [1], name: "宗景香", gender: "female" },
+              { id: 3, pids: [4], mid: 2, fid: 1, name: "刘云", gender: "female" },
+              { id: 4, pids: [3], name: "韩孝亮", gender: "male" },
+              { id: 5, pids: [6], mid: 2, fid: 1, name: "刘铁山", gender: "male" },
+              { id: 6, pids: [5], name: "高振华", gender: "female" },
+              { id: 7, pids: [8], mid: 2, fid: 1, name: "刘玉兰", gender: "female" },
+              { id: 8, pids: [7], name: "田令健", gender: "male" },
+              { id: 9, pids: [10], mid: 2, fid: 1, name: "刘玉兰", gender: "female" },
+              { id: 10, pids: [9], name: "田令健", gender: "male" },
+              { id: 11, pids: [12], mid: 2, fid: 1, name: "刘玉美", gender: "female" },
+              { id: 12, pids: [11], name: "孔志飞", gender: "male" },
+              { id: 13, pids: [14], mid: 2, fid: 1, name: "刘明山", gender: "male" },
+              { id: 14, pids: [13], name: "二大娘", gender: "female" },
+              { id: 15, pids: [16], mid: 2, fid: 1, name: "刘凤山", gender: "male" },
+              { id: 16, pids: [15], name: "成桂臻", gender: "female" },
+              { id: 17, pids: [18], mid: 6, fid: 5, name: "刘恩洲", gender: "male" },
+              { id: 18, pids: [17], name: "高洁", gender: "female" },
+              { id: 19, pids: [20], mid: 6, fid: 5, name: "刘恩洋", gender: "male" },
+              { id: 20, pids: [19], name: "中文媳妇", gender: "female" },
+              { id: 21, pids: [22], mid: 7, fid: 8, name: "田德伟", gender: "male" },
+              { id: 22, pids: [21], name: "伟伟媳妇", gender: "female" }, 
+              { id: 23, pids: [24], mid: 7, fid: 8, name: "田德斌", gender: "male" },
+              { id: 24, pids: [23], name: "二林媳妇", gender: "female" },
+              { id: 25, pids: [26], mid: 14, fid: 13, name: "刘恩波", gender: "male" },
+              { id: 26, pids: [25], name: "张虹", gender: "female" },
+              { id: 27, name: "孔楠", mid: 11, fid: 12, gender: "female" },
+              { id: 28, pids: [29], mid: 16, fid: 15, name: "刘恩涛", gender: "male", 生日: "阳历1982年11月6日"},
+              { id: 29, pids: [28], name: "刘品孜", gender: "female", 生日: "阳历1989年6月15日"},
+              { id: 30, mid: 29, fid: 28, name: "刘牧芮", gender: "female", 生日: "阳历2021年8月4日" },
+              { id: 31, mid: 29, fid: 28, name: "刘牧青", gender: "male", 生日: "阳历2021年8月4日"},
+      ]
+      });
+  </script> 
+  <footer>
+  <p>更新内容请联系刘恩涛 liuentao@gmail.com</p>
 </footer>
